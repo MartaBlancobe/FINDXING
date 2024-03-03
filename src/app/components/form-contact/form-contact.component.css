@@ -1,0 +1,59 @@
+:host {
+  display: block;
+}
+.content{
+padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.name{
+  padding-top: 10px;
+padding-bottom: 10px;
+
+}
+
+.cName{
+  padding-right: 5px;
+}
+
+.lastName{
+  padding-top: 10px;
+padding-bottom: 10px;
+
+}
+
+.clastName{
+  padding-right: 5px;
+}
+
+.address{
+  padding-top: 10px;
+padding-bottom: 10px;
+}
+
+.cAddress{
+  padding-right: 5px;
+}
+
+.text{
+  padding-top: 10px;
+padding-bottom: 10px;
+
+
+}
+
+.cText{
+  padding-right: 5px;
+  text-align: justify;
+  
+}
+
+.phone{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 5px;
+}
+
+.cPhone{
+  padding-right: 5px;
+}

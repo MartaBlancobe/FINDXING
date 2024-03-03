@@ -1,0 +1,29 @@
+<p-toast></p-toast>
+<form [formGroup]="miFormulario" novalidate class="content formgrid grid flex flex-wrap align-items-center justify-content-center">
+    <div class="name sfield col-12 md:col-6">
+        <label for="name" class="cName">Nombre</label>
+        <input id="name" pInputText type="text" formControlName="name" aria-label="name" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full">
+    </div>
+
+    <div class="lastName col-12 md:col-6">
+        <label for="lastName" class="clastName">Apellidos</label>
+        <input id="lastName" pInputText type="text" formControlName="lastName" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full padding-top: 5px">
+    </div>
+
+    <div class="address field col-12 md:col-6">
+        <label for="address" class="cAddress">Dirección</label>
+        <input id="address" pInputText type="text" formControlName="address" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full padding-top: 2rem">
+    </div>
+
+    <div class="text field col-12">
+        <label for="text" class="cText">Mensaje</label>
+        <textarea id="text" pInputTextarea formControlName="text" rows="4" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full padding-top: 2rem"></textarea>
+    </div>
+
+    <div class="phone field col-12">
+        <label class="cPhone">Teléfono</label>
+        <p-inputMask mask="(999) 999-9999" formControlName="phone" placeholder="(999) 999-9999" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full"></p-inputMask>
+    </div>
+
+    <p-button label="Enviar mensaje" severity="secondary" (click)="saveForm()"></p-button>
+</form>
