@@ -14,11 +14,15 @@ import { ButtonModule } from 'primeng/button';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { UserAppService } from '../../services/user.service';
+import { HttpClientModule } from '@angular/common/http';
+
 @Component({
   selector: 'app-form-contact',
   standalone: true,
   imports: [
     CommonModule,
+    HttpClientModule,
     InputTextModule,
     FormsModule,
     InputNumberModule,
@@ -31,36 +35,46 @@ import { MessageService } from 'primeng/api';
   templateUrl: './form-contact.component.html',
   styleUrl: './form-contact.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [MessageService],
+  providers: [HttpClientModule,MessageService],
 })
 export class FormContactComponent {
 
   miFormulario!: FormGroup;
 
-  constructor(private messageService: MessageService) {
+  constructor(
+    private messageService: MessageService,
+    private userAppService: UserAppService
+    ) {
     this.miFormulario = new FormGroup({
-      name: new FormControl('', [Validators.minLength(2), Validators.required]),
-      lastName: new FormControl('', Validators.minLength(2)),
-      address: new FormControl('', Validators.minLength(2)),
-      text: new FormControl('', [Validators.minLength(2), Validators.required]),
-      phone: new FormControl('', Validators.required),
+      nombre: new FormControl('', [Validators.minLength(2), Validators.required]),
+      apellidos: new FormControl('', Validators.minLength(2)),
+      direccion: new FormControl('', Validators.minLength(2)),
+      mensaje: new FormControl('', [Validators.minLength(2), Validators.required]),
+      telefono: new FormControl('', Validators.required),
     });
-
   }
   saveForm() {
     if (this.miFormulario.valid) {
-      this.showMessageSuccess();
+      this.userAppService.createFormContact(this.miFormulario).subscribe({
+        next: value =>  {
+          this.miFormulario.reset();
+          this.showMessageSuccess();
+        },
+        error: err => this.showMessageError("Error en el servidor"),
+        complete: () => console.log('Observable emitted the complete notification')
+      });
+     
       console.log('mi formulario', this.miFormulario);
     } else {
       this.showMessageError();
       console.log('error', this.miFormulario);
     }
   }
-  showMessageError() {
+  showMessageError(detail?:string) {
     this.messageService.add({
       severity: 'error',
       summary: 'error',
-      detail: 'El formulario contiene errores',
+      detail: detail?detail:'El formulario contiene errores',
     });
   }
   showMessageSuccess() {
