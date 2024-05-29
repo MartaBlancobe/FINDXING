@@ -1,0 +1,25 @@
+<p-toast></p-toast>
+<p-button label="Sign-Out" *ngIf="login" (click)="logout()" icon="pi pi-sign-out" severity="secondary" label="Logout" ></p-button>
+<p-button *ngIf="!login" (click)="showDialog()" icon="pi pi-user" label="Login"></p-button>
+<p-dialog [(visible)]="visible">
+    <ng-template pTemplate="headless">
+        <div class="flex flex-column px-8 py-5 gap-4" style="border-radius: 12px; background-image: radial-gradient(circle at left top, var(--green-800), var(--green-800))">
+            <h2 *ngIf="register">Register</h2>
+            <div class="inline-flex flex-column gap-2">
+                <label for="username" class="text-gray-50 font-semibold">Nombre</label>
+                <input pInputText id="username" [(ngModel)]="username" class="bg-white-alpha-20 border-none p-3 text-green-900"/>
+            </div>
+            <div class="inline-flex flex-column gap-2">
+                <label for="password" class="text-gray-50 font-semibold">Contraseña</label>
+                <input pInputText id="password" [(ngModel)]="password" class="bg-white-alpha-20 border-none p-3 text-green-900" type="password"/>
+            </div>
+            <div class="flex align-items-center gap-2">
+                <p-button label="Sign-In" *ngIf="!register" (click)="signIn()" [text]="true" styleClass="w-full text-gray-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10" class="w-full" ></p-button>
+                <p-button label="Register" *ngIf="register" (click)="registerUser()" [text]="true" styleClass="w-full text-gray-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10" class="w-full" ></p-button>
+         
+                <p-button label="Cancel" (click)="closeDialog()" [text]="true"  styleClass="w-full text-gray-50 border-1 border-white-alpha-30 hover:bg-white-alpha-10" class="w-full"></p-button>
+            </div>
+            <p-button *ngIf="!register" styleClass="w-full text-gray-50" label="¿No tienes usuario? Regístrate" [link]="true" (onClick)="register=true" ></p-button>
+        </div>
+    </ng-template>
+</p-dialog>
