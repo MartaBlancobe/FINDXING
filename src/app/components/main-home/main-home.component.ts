@@ -15,8 +15,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 })
 export class MainHomeComponent {
   images: any[] =[
-    {itemImageSrc:'assets/images/foto1.png'},
-    {itemImageSrc:'assets/images/taller.jpg'}
+    {itemImageSrc:'assets/images/tallerLogo.jpg'},
+    {itemImageSrc:'assets/images/mecanico.jpg'}
 ];
 
   responsiveOptions: any[] = [

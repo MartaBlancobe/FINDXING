@@ -1,21 +1,37 @@
 <p-toast></p-toast>
-<div class="calendar-container" style="display: flex; align-items: center;">
-    <div class="calendar" style="flex: 1;">
+<div class="grid justify-content-center align-items-start p-4">
+  <div class="col-12 md:col-6 lg:col-4">
+    <div class="p-card card-style" >
       <p-calendar 
-        class="max-w-full" 
+        class="w-full" 
         [(ngModel)]="date" 
         [inline]="true" 
-        [showWeek]="true"
+        [showWeek]="false"
         [minDate]="minDate"
+        [disabledDays]="[0, 6]"
         (onSelect)="onDateSelect($event)">
       </p-calendar>
     </div>
-    <div class="form-container" style="margin-left: 20px;">
-      <div class="form-group">
+  </div>
+  <div class="col-12 md:col-6 lg:col-4">
+    <div class="p-card">
+      <div class="form-group mr-4 ml-4 pt-6">
         <label for="selectedDate">Fecha seleccionada:</label>
-        <input type="text" pInputText [(ngModel)]="formattedDate" readonly class="form-control">
+        <input type="text" pInputText [(ngModel)]="formattedDate" readonly class="w-full">
       </div>
-      <p-button (click)="submit()" label="Confirmar" class="btn btn-primary"></p-button>
+      <div *ngIf="availableHours.length > 0" class="hours-table mr-4 ml-4">
+        <h3>Horas disponibles</h3>
+        <table class="w-full">
+          <tr *ngFor="let hour of availableHours" (click)="selectHour(hour)" [class.selected]="hour === selectedHour">
+            <td>{{hour}}</td>
+          </tr>
+        </table>
+      </div>
+      <div class="form-group mr-4 ml-4 pt-6">
+        <label for="selectedHour">Hora seleccionada:</label>
+        <input type="text" pInputText [(ngModel)]="selectedHour" readonly class="w-full">
+      </div>
+      <p-button (click)="submit()" label="Confirmar" class="w-full btn-submit"></p-button>
     </div>
   </div>
-  
+</div>

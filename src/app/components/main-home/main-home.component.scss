@@ -1,9 +1,31 @@
-:host {
-  display: block;
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+  text-align: center;
+  padding: 20px;
 }
 
 .section-title {
-  text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
+.welcome-text {
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: #555;
+}
+
+.p-galleria .p-galleria-container {
+  width: 30% !important;
+  margin: 0 auto;
+}
+
+.gallery-image {
+  width: 30%;
+  height: auto;
+  display: block;
+}

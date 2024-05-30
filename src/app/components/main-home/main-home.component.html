@@ -1,7 +1,13 @@
-<h1 class="section-title">Bienvenidos a Findxing</h1>
-<p-galleria [value]="images" [numVisible]="5" [circular]="true" [autoPlay]="true"
-[transitionInterval]="3000" [showItemNavigators]="true" [showThumbnails]="false" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }">
+<div class="header">
+    <h1 class="section-title">Bienvenidos a Findxing</h1>
+    <p class="welcome-text">
+        Bienvenido a la web de Findxing. Nuestro horario de apertura es de L-V 08:00 am a 14:00 pm y de 16:00 pm a 20:30 pm.
+    </p>
+</div>
+<p-galleria [value]="images" [numVisible]="1" [circular]="true" [autoPlay]="true"
+    [transitionInterval]="3000" [showItemNavigators]="true" [showThumbnails]="false"
+    [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'width': '100%' }">
     <ng-template pTemplate="item" let-item>
-        <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
+        <img [src]="item.itemImageSrc" class="gallery-image" />
     </ng-template>
 </p-galleria>
