@@ -1,1 +1,13 @@
-<p>spare-parts works!</p>
+<div class="spare-parts-section">
+    <h2 class="section-title">Repuestos Disponibles</h2>
+    <div class="spare-parts-container">
+      <div *ngFor="let repuesto of repuestos" class="spare-part-item">
+        <img [src]="repuesto.image" [alt]="repuesto.name" class="spare-part-image">
+        <div class="spare-part-description">
+          <h4>{{repuesto.name}}</h4>
+          <p>{{repuesto.description}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
