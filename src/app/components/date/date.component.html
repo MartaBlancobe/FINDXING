@@ -1,0 +1,21 @@
+<p-toast></p-toast>
+<div class="calendar-container" style="display: flex; align-items: center;">
+    <div class="calendar" style="flex: 1;">
+      <p-calendar 
+        class="max-w-full" 
+        [(ngModel)]="date" 
+        [inline]="true" 
+        [showWeek]="true"
+        [minDate]="minDate"
+        (onSelect)="onDateSelect($event)">
+      </p-calendar>
+    </div>
+    <div class="form-container" style="margin-left: 20px;">
+      <div class="form-group">
+        <label for="selectedDate">Fecha seleccionada:</label>
+        <input type="text" pInputText [(ngModel)]="formattedDate" readonly class="form-control">
+      </div>
+      <p-button (click)="submit()" label="Confirmar" class="btn btn-primary"></p-button>
+    </div>
+  </div>
+  

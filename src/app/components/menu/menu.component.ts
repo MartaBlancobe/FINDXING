@@ -32,17 +32,17 @@ export class MenuComponent implements OnInit {
       {
         label: 'Citas de taller',
         icon: 'pi pi-fw pi-user',
-        routerLink: '/',
+        routerLink: 'date',
       },
       {
         label: 'Repuestos',
         icon: 'pi pi-fw pi-user',
-        routerLink: '/',
+        routerLink: 'sparePart',
       },
       {
         label: 'Cambios de aceite',
         icon: 'pi pi-fw pi-user',
-        routerLink: '/',
+        routerLink: 'oilChange',
       },
       {
         label: 'Contacto',

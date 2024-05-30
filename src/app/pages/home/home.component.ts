@@ -8,7 +8,7 @@ import { MainHomeComponent } from "../../components/main-home/main-home.componen
     selector: 'app-home',
     standalone: true,
     templateUrl: './home.component.html',
-    styleUrl: './home.component.css',
+    styleUrl: './home.component.scss',
     changeDetection: ChangeDetectionStrategy.OnPush,
     imports: [RouterOutlet,
         CommonModule, MenuComponent, MainHomeComponent]
