@@ -8,16 +8,16 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class UserAppService {
-  
+
   BACK_URL = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
   createFormContact(contactForm: FormGroup){
-    return this.http.put(`${this.BACK_URL}formContact`, contactForm.value);
+    return this.http.post(`${this.BACK_URL}formContact`, contactForm.value);
   }
 
   registerUser(user:User){
-    return this.http.put(`${this.BACK_URL}registerUser`, user);
+    return this.http.post(`${this.BACK_URL}registerUser`, user);
   }
 
   login(user:User) {
